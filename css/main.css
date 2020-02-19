@@ -1,0 +1,171 @@
+/* Estilos Básicos da Aplicação */
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    -khtml-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -ms-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+}
+
+html, body {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    line-height: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+html h2, body h2{
+    color: #000000cc;
+    font-size: 175%;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Cabeçalho Principal */
+
+.cabecalho-principal {
+    margin-bottom: 5em;
+}
+
+.cabecalho-principal img{
+    width: 10em;
+    margin-bottom: 4em;
+    margin-top: 1em;
+}
+
+.cabecalho-principal button{
+    background-color: #ff4f4f;
+    color: white;
+    font-weight: bold;
+    margin-top: 1em;
+    padding: .6em 1em;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+}
+
+
+/* Formulário Principal */
+
+.formulario-principal {
+    background-color: #ff4f4f;
+    box-sizing: border-box;
+    padding: 1.5em 1em;
+    margin-bottom: 5em;
+    border-radius: .5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+    align-items: center;
+    transition: all .5s ease-in-out;
+}
+
+.container-formulario {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+
+.formulario-principal h2 {
+    color: #ffffee;
+    width: 100%;
+    font-size: 140%;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.formulario-principal form input, form button {
+    width: 100%;
+    margin-bottom: .3em;
+    margin-top: .3em;
+    box-sizing: border-box;
+    padding: .7em 1em;
+    border: .1em solid #ffffff88;
+    border-radius: .5em;
+}
+
+.formulario-principal form input {
+    background-color: transparent;
+}
+
+.formulario-principal form input::placeholder {
+    color: #ffffffaa;
+}
+
+.formulario-principal form button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Doadores Seção */
+
+.doadores-secao h2{
+    margin-bottom: 1.5em;
+}
+
+.doadores-secao h2 span{
+    color: #ff4f4f;
+}
+
+.doadores-lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    list-style-type: none;
+    margin-bottom: 5em;
+}
+
+.doadores-lista li .sangue-tipo{
+    color: #ff4f4f;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.doadores-lista li .sangue-tipo::before{
+    content: "";
+    background-color: #ff4f4f11;
+    width: 2.5em;
+    height: 2.5em;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
+}
+
+
+/* Rodapé Principal */
+
+.rodape-principal {
+    margin-top: auto;
+    padding: .5em;
+    border: .1em solid #eee;
+}
+
+
+/* Toggle Invisível */
+
+.invisivel {
+    opacity: 0;
+    visibility: hidden;
+    height: 0em;
+    margin-top: -3em;
+}
