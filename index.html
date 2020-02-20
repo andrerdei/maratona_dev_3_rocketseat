@@ -38,22 +38,14 @@
             <h2>Últimos <span>doadores</span></h2>
 
             <ul class="doadores-lista">
-                <li>
-                    <p class="sangue-tipo">AB +</p>
-                    <p class="nome-doador">Diego Fernandes</p>
-                </li>
-                <li>
-                    <p class="sangue-tipo">B +</p>
-                    <p class="nome-doador">Cleiton Souza</p>
-                </li>
-                <li>
-                    <p class="sangue-tipo">O +</p>
-                    <p class="nome-doador">Mayk Brito</p>
-                </li>
-                <li>
-                    <p class="sangue-tipo">O -</p>
-                    <p class="nome-doador">André Erdei</p>
-                </li>
+                {% for doador in doadores %}
+
+                    <li>
+                        <p class="sangue-tipo">{{doador.sangue}}</p>
+                        <p class="nome-doador">{{doador.nome}}</p>
+                    </li>
+
+                {% endfor %}
             </ul>
         </section>
     </main>
