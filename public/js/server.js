@@ -9,6 +9,11 @@ const server = express();
 server.use(express.static("public"));
 
 
+// Habilitar Corpo do Formulário
+
+server.use(express.urlencoded({extended: true}));
+
+
 // Configurando Template Engine
 
 const nunjucks = require("nunjucks");
@@ -21,30 +26,27 @@ nunjucks.configure("./", {
 
 // Lista de Doadores
 
-const doadores = [
-    {
-        nome: "Diego Fernandes",
-        sangue: "AB +"
-    },
-    {
-        nome: "Cleiton souza",
-        sangue: "B +"
-    },
-    {
-        nome: "Robson Marques",
-        sangue: "A -"
-    },
-    {
-        nome: "André Erdei",
-        sangue: "O +"
-    }
-];
+const doadores = [];
 
 
 // Configurando Apresentação da Página
 
 server.get("/", (req, res) => {
     return res.render("index.html", {doadores});
+});
+
+server.post("/", (req, res) => {
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const sangue = req.body.sangue;
+
+    doadores.push({
+        nome: nome,
+        email: email,
+        sangue: sangue
+    });
+
+    return res.redirect("./");
 });
 
 

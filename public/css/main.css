@@ -151,6 +151,13 @@ html h2, body h2{
     transform: rotate(-45deg);
 }
 
+.doadores-lista li .nome-doador{
+    font-size: 14px;
+    line-height: 1.3em;
+    margin-top: .5em;
+    margin-bottom: 1.5em;
+}
+
 
 /* Rodapé Principal */
 
