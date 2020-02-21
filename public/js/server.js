@@ -14,6 +14,18 @@ server.use(express.static("public"));
 server.use(express.urlencoded({extended: true}));
 
 
+// Configurando Conexão Com o Banco de Dados
+
+const Pool = require("pg").Pool
+const db = new Pool({
+    user: "postgres",
+    password: "0000",
+    host: "localhost",
+    port: 5432,
+    database: "doe"
+})
+
+
 // Configurando Template Engine
 
 const nunjucks = require("nunjucks");
@@ -24,15 +36,19 @@ nunjucks.configure("./", {
 });
 
 
-// Lista de Doadores
-
-const doadores = [];
-
-
 // Configurando Apresentação da Página
 
 server.get("/", (req, res) => {
-    return res.render("index.html", {doadores});
+    const buscaQuery = `
+                        SELECT *
+                        FROM doadores
+                       `
+
+    db.query(buscaQuery, (err, result) => {
+        const doadores = result.rows;
+
+        err ? res.send("Erro no banco de dados") : res.render("index.html", {doadores});
+    });
 });
 
 server.post("/", (req, res) => {
@@ -40,13 +56,20 @@ server.post("/", (req, res) => {
     const email = req.body.email;
     const sangue = req.body.sangue;
 
-    doadores.push({
-        nome: nome,
-        email: email,
-        sangue: sangue
-    });
+    if(nome == "" || email == "" || sangue == "") {
+        return res.send("Todos os campos devem ser preenchidos");
+    }
 
-    return res.redirect("./");
+    const enviaQuery = `
+                        INSERT INTO doadores ("nome", "email", "sangue")
+                        VALUES ($1, $2, $3)
+                       `;
+
+    const values = [nome, email, sangue];
+
+    db.query(enviaQuery, values, (err) => {
+        err ? res.send("Erro no banco de dados") : res.redirect("./");
+    });
 });
 
 

@@ -114,6 +114,16 @@ html h2, body h2{
 
 /* Doadores Seção */
 
+.doadores-secao{
+    width: 50%;
+}
+
+@media(max-width: 900px){
+    .doadores-secao{
+        width: 90%;
+    }
+}
+
 .doadores-secao h2{
     margin-bottom: 1.5em;
 }
@@ -152,10 +162,12 @@ html h2, body h2{
 }
 
 .doadores-lista li .nome-doador{
+    width: 50%;
     font-size: 14px;
     line-height: 1.3em;
+    margin: auto;
     margin-top: .5em;
-    margin-bottom: 1.5em;
+    margin-bottom: 4em;
 }
 
 
@@ -173,6 +185,8 @@ html h2, body h2{
 .invisivel {
     opacity: 0;
     visibility: hidden;
-    height: 0em;
-    margin-top: -3em;
+}
+
+.invisivel-altura {
+    margin: -6em;
 }

@@ -13,4 +13,5 @@ botaoCabecalho.onclick = toggleFormDeDoacao;
 
 function toggleFormDeDoacao() {
     formDoacao.classList.toggle("invisivel");
+    formDoacao.classList.contains("invisivel-altura") ? formDoacao.classList.remove("invisivel-altura") : setTimeout(() => {formDoacao.classList.add("invisivel-altura")}, 500)
 }
